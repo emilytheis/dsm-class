@@ -11,6 +11,8 @@ var DSMclass = {
   },
 
   addEventListeners: function() {
+    let scope = this;
+
     $('.js--next-suggestion').on('click', function(event) {
       event.preventDefault();
 
@@ -18,19 +20,21 @@ var DSMclass = {
         opacity: 0
       }, 500, 'easeOutExpo', 
       function() {
-        this.randomizeData( this.tabletopData );
+        scope.randomizeData( scope.tabletopData );
         $('.animate-content').transition({ opacity: 1 });
       });
+
     });
   },
 
   getCardData: function() {
     let scope = this;
-    
-    Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1ZqCUv_Ps0lHS0_I8Onk_xcdP9ThUS2ALtmxre5o7h5Q/pub?output=csv',
+
+    Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1gqO8_7kPpg9uB2fR45ObdZ82yfFI9HqKHJhH9ZqeMwk/edit?usp=sharing',
       callback: function(data, tabletop) {
         scope.tabletopData = data;
         scope.randomizeData( scope.tabletopData );
+        console.log(scope.tabletopData);
 
         if($('.beating-hearts-baby').length) {
           $('body').removeClass('beating-hearts-baby');
@@ -44,13 +48,15 @@ var DSMclass = {
     var dbRow = Math.random() * (data.length - 1) + 1;
 
     dbRow = Math.round(dbRow);
-    var suggestionData = data[dbRow];
-    var elements = ['type', 'name', 'suggestion', 'comment'];
+    var momentData = data[dbRow];
+    var elements = ['name', 'pride', 'shame', 'song', 'location', 'age'];
 
     // Grab the content and put 'er in
     elements.forEach( function (el, index, elements) {
-      elements[index] = document.getElementById(el);
-      elements[index].textContent = suggestionData[el];
+      htmlElement = document.getElementById(el);
+      if ( htmlElement ) {
+        htmlElement.textContent = momentData[el];
+      }
     });
   }
 }
