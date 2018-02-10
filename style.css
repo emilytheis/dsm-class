@@ -116,8 +116,7 @@ a[href]:not([class]):hover,
     max-width: 800px;
     margin: auto;
     background-color: white;
-    padding: 2em;
-    padding-top: 2.5em;
+    padding: 1em;
     border-radius: .7em;
     transition: all 0.3s ease-in;
     opacity: 1;
@@ -134,27 +133,14 @@ a[href]:not([class]):hover,
     border-radius: .7em;
 }
 
-/* LOGO STYLES */
+/* ICON STYLES */
 
-.logo {
-    position: absolute;
-    float: left;
-    left: 0;
-    top: 2.5em;
-    left: 41%;
+.icon {
+    width: 2em;
+    height: auto;
+    margin-left: -10px;
+    margin-bottom: 3px;
 }
-
-.logo-link:focus .logo-fill {
-    fill:black;
-}
-
-.logo-fill {
-    fill: #E25C5C;
-}
-
-.logo:hover .logo-fill { 
-    fill: black;
-} 
 
 /* PAGE HEADINGS */
 
@@ -162,8 +148,6 @@ a[href]:not([class]):hover,
     font-size: 2em;
     font-weight: 400;
     line-height: 1.1; 
-    margin-top: .3em;
-    margin-bottom: 0em;
     font-family: "Oswald", serif;
 }
 
