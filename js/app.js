@@ -8,6 +8,7 @@ var DSMclass = {
 
     this.addEventListeners();
     this.getCardData();
+    this.initServiceWorker();
   },
 
   addEventListeners: function() {
@@ -34,7 +35,6 @@ var DSMclass = {
       callback: function(data, tabletop) {
         scope.tabletopData = data;
         scope.randomizeData( scope.tabletopData );
-        console.log(scope.tabletopData);
 
         if($('.beating-hearts-baby').length) {
           $('body').removeClass('beating-hearts-baby');
@@ -58,5 +58,13 @@ var DSMclass = {
         htmlElement.textContent = momentData[el];
       }
     });
+  },
+
+  initServiceWorker: function() { 
+     if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+               .register('../service-worker.js')
+               .then(function() { console.log('Service Worker Registered'); });
+    }
   }
 }
