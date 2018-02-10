@@ -7,12 +7,23 @@ var DSMclass = {
 
   init: function() {
     var scope = this;
+    this.tabletopData = JSON.parse( localStorage.getItem( this.dataCacheName ) );
     //this.initServiceWorker();
     this.addEventListeners();
-    this.getData().then( function( data ) { 
-      scope.tabletopData = data;
-      scope.displayData( data );
-    } );
+
+    if ( this.tabletopData ) {
+      scope.displayData( this.tabletopData );
+
+    } else {
+      this.getData().then( function( data ) {
+        if ( 'localStorage' in window ) {
+          scope.cacheData( data );
+        }
+
+        scope.displayData( data );
+        scope.tabletopData = data;
+      } );
+    }
   },
 
   addEventListeners: function() {
@@ -25,7 +36,7 @@ var DSMclass = {
         opacity: 0
       }, 500, 'easeOutExpo', 
       function() {
-        scope.displayData();
+        scope.displayData( scope.tabletopData );
         $('.animate-content').transition({ opacity: 1 });
       });
 
@@ -44,8 +55,28 @@ var DSMclass = {
     } );
   },
 
+  cacheData: function( data ) {
+    var scope = this;
+    var dataToCache = JSON.stringify( data );
+    var cachedData = localStorage.getItem( this.dataCacheName );
+
+    // Only clear and create new cache if today's data hasn't been cached yet
+    if ( !cachedData ) {
+      localStorage.clear();
+      localStorage.setItem( this.dataCacheName,  dataToCache);
+    }
+
+    return;
+  },
+
+  dataCacheName: function() {
+    var today = new Date();
+    var name = 'DSMclass' + today.getMonth() + today.getDate();
+
+    return name;
+  },
+
   displayData: function( data ) {
-    var data = data || this.tabletopData;
     var elements = ['name', 'pride', 'shame', 'song', 'location', 'age'];
     var dbRow = Math.random() * ( data.length - 1 ) + 1;
     dbRow = Math.round(dbRow);
