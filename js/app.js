@@ -1,36 +1,46 @@
 $(document).ready(function($) {
-  var tabletopData;
+  DSMclass.init();
+});
 
-  // This is a click event that allows us to trigger the randomize data funtion
-  $('.js--next-suggestion').on('click', function(event) {
-    event.preventDefault();
+var DSMclass = {
+  init: function() {
+    this.tabletopData = '';
 
-    $('.animate-content').transition({
-      opacity: 0
-    }, 500, 'easeOutExpo', 
-    function() {
-      randomizeData(tabletopData);
-      $('.animate-content').transition({ opacity: 1 });
+    this.addEventListeners();
+    this.getCardData();
+  },
+
+  addEventListeners: function() {
+    $('.js--next-suggestion').on('click', function(event) {
+      event.preventDefault();
+
+      $('.animate-content').transition({
+        opacity: 0
+      }, 500, 'easeOutExpo', 
+      function() {
+        this.randomizeData( this.tabletopData );
+        $('.animate-content').transition({ opacity: 1 });
+      });
     });
-  });
+  },
 
-  // This initially gets the data from the spreadheet and transforms it into an object
-  function getCardData() {
+  getCardData: function() {
+    let scope = this;
+    
     Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1ZqCUv_Ps0lHS0_I8Onk_xcdP9ThUS2ALtmxre5o7h5Q/pub?output=csv',
+      callback: function(data, tabletop) {
+        scope.tabletopData = data;
+        scope.randomizeData( scope.tabletopData );
 
-    callback: function(data, tabletop) {
-      tabletopData = data;
-      randomizeData(tabletopData);
+        if($('.beating-hearts-baby').length) {
+          $('body').removeClass('beating-hearts-baby');
+        }
+      },
+      simpleSheet: true
+    } );
+  },
 
-      if($('.beating-hearts-baby').length) {
-        $('body').removeClass('beating-hearts-baby');
-      }
-    },
-    simpleSheet: true } );
-  }
-
-  // Randomize
-  function randomizeData(data) {
+  randomizeData: function ( data ) {
     var dbRow = Math.random() * (data.length - 1) + 1;
 
     dbRow = Math.round(dbRow);
@@ -43,6 +53,4 @@ $(document).ready(function($) {
       elements[index].textContent = suggestionData[el];
     });
   }
-
-  getCardData();
-});
+}
