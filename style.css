@@ -12,7 +12,7 @@ html {
     color: #000000;
     font-size: 1em;
     line-height: 1.6;
-    font-family: "freight-text-pro", serif;
+    font-family: "inconsolata", serif;
     font-weight: 500;
 }
 
@@ -21,7 +21,7 @@ html {
  */
 
 ::selection {
-    background: #E1D5CA;
+    background: white;
 }
 
 /*
@@ -74,7 +74,7 @@ textarea {
    Global
    ========================================================================== */
 body {
-    background-color: #F5F0EC;
+    background-color: white;
     margin: 8em 5% 2.5em 5%;
 }
 
@@ -84,11 +84,10 @@ ul {
 
 a[href]:not([class]), 
 .back {
-    font-size: .9em;
     margin-top: 2.5em;
     color: black;
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'inconsolata', sans-serif;
     font-weight: 900;
 }
 
@@ -98,7 +97,7 @@ a[href]:not([class]),
 
 a[href]:not([class]):hover,
 .back:hover {
-    color: #E25C5C;
+    color: #EE2BB4;
 }
 
 
@@ -160,17 +159,18 @@ a[href]:not([class]):hover,
 /* PAGE HEADINGS */
 
 .suggestion {
-    font-size: 2.6em;
+    font-size: 2em;
+    font-weight: 400;
     line-height: 1.1; 
     margin-top: .3em;
     margin-bottom: 0em;
-    font-family: "freight-display-pro", serif;
+    font-family: "Oswald", serif;
 }
 
 .subtitle {
     font-size: 2em;
     line-height: 1.2em; 
-    font-family: "freight-display-pro", serif;
+    font-family: "Oswald", serif;
     font-weight: 400;
     font-style: italic;
 }
@@ -182,7 +182,7 @@ a[href]:not([class]):hover,
 }
 
 a.footnote {
-    font-family: "freight-display-pro"
+    font-family: "Inconsolata"
 }
 
 .comment {
@@ -195,11 +195,10 @@ a.footnote {
 .suggester,
 .next-suggestion,
 .get-started {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inconsolata', sans-serif;
     text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: .05em;
-    font-size:.85em;
+    font-weight: 400;
+    font-size: 1.2em;
 }
 
 .category-name,
@@ -232,14 +231,15 @@ a.footnote {
 .next-suggestion, 
 .get-started {
     display: block;
-    line-height: 1.3em;
-    font-weight: 700;
-    color: white;
+    line-height: .6em;
+    font-size: 26px;
+    font-weight: 500;
     text-decoration: none;
     border: none;
-    background-color: #E25C5C;
+    background-color: #DCF42B;
     text-align: center;
     outline: none;
+    font-family: Oswald;
 }
 
 .next-suggestion {
@@ -265,8 +265,7 @@ a.footnote {
 .next-suggestion:focus,
 .get-started:hover,
 .get-started:focus { 
-    background-color: #D13F3F;
-    color: #FFFFFF;
+    background-color: #D8137D;
 } 
 
 
