@@ -1,4 +1,5 @@
-var cacheName = 'DSMclass-cache-v0.1';
+var appCacheName = 'DSMapp-cache-v0.1';
+var dataCacheName = 'DSMdata-cache-v0.1';
 var filesToCache = [
     '/',
     '/index.html',
@@ -14,18 +15,18 @@ var filesToCache = [
 // Add selected files to cache
 self.addEventListener( 'install', function( event ) {
   event.waitUntil(
-    caches.open( cacheName )
+    caches.open( appCacheName )
       .then( function( cache ) {
         return cache.addAll(filesToCache);
       }))
 });
 
-// Update cache content if it no longer matches key `cacheName`
+// Update cache content if it no longer matches key `appCacheName`
 self.addEventListener('activate', function( e ) {
   e.waitUntil(
     caches.keys().then( function( keyList ) {
-      return Promise.all(keyList.map( function( key ) {
-        if ( key !== cacheName ) {
+      return Promise.all( keyList.map( function( key ) {
+        if ( key !== appCacheName && key !== dataCacheName ) {
           return caches.delete( key );
         }
       }));
