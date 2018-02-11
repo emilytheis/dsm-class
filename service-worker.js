@@ -1,5 +1,4 @@
 var appCacheName = 'DSMapp-cache-v0.1';
-var dataCacheName = 'DSMdata-cache-v0.1';
 var filesToCache = [
     '/',
     '/index.html',
@@ -26,7 +25,7 @@ self.addEventListener('activate', function( e ) {
   e.waitUntil(
     caches.keys().then( function( keyList ) {
       return Promise.all( keyList.map( function( key ) {
-        if ( key !== appCacheName && key !== dataCacheName ) {
+        if ( key !== appCacheName ) {
           return caches.delete( key );
         }
       }));

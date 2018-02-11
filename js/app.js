@@ -11,6 +11,7 @@ var DSMclass = {
     //this.initServiceWorker();
     this.addEventListeners();
 
+    // Get data and cache it if necessary
     if ( this.tabletopData ) {
       scope.displayData( this.tabletopData );
 
