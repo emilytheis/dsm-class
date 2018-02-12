@@ -76,6 +76,9 @@ textarea {
 .page {
     background-color: white;
     margin: 5% 2.5em 5%;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 2em;
 }
 
 .header {
@@ -253,8 +256,8 @@ a.footnote {
     position: absolute;
     left: 0;
     width: 100%;
-    top: -11vw;
-    height: 11vw;
+    top: -8vw;
+    height: 8vw;
     background-image: linear-gradient(to bottom,rgba(255,255,255,0),white 70%);
 }
 
@@ -404,7 +407,7 @@ a.footnote {
         font-size: 2.5em;
     }
     .intro {
-    font-size: 4em;
+    font-size: 5em;
     }
     .next-suggestion {
     font-size: 1.1em;
