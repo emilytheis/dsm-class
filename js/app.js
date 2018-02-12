@@ -86,7 +86,7 @@ var DSMclass = {
     // Grab the content and put 'er in
     elements.forEach( function (el, index, elements) {
       htmlElement = document.getElementById(el);
-      if ( htmlElement ) {
+      if ( htmlElement &&  momentData[el] ) {
         htmlElement.textContent = momentData[el];
       }
     });

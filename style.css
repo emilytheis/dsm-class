@@ -73,9 +73,49 @@ textarea {
 /* ==========================================================================
    Global
    ========================================================================== */
-body {
+.page {
     background-color: white;
-    margin: 8em 5% 2.5em 5%;
+    margin: 5% 2.5em 5%;
+}
+
+.header {
+    background-color: black;
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: Oswald;
+    font-size: 1.7em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #DCF42B;
+    padding-left: 20px;
+}
+a.title {
+    text-decoration: none;
+}
+
+a.title:hover {
+   color: #EE2BB4; 
+}
+
+.subtitle {
+    font-size: 14.5px;
+    font-family: "Inconsolata", serif;
+    font-weight:300;
+    padding-left: 20px;
+    margin-top: 10px;
+    line-height: 1em;
+    color: white;
+    display: flex-wrap;
+}
+.subtitle-link {
+    color: white;
+}
+.subtitle-link:hover {
+    color: #EE2BB4;
 }
 
 ul {
@@ -86,9 +126,7 @@ a[href]:not([class]),
 .back {
     margin-top: 2.5em;
     color: black;
-    text-decoration: none;
     font-family: 'inconsolata', sans-serif;
-    font-weight: 900;
 }
 
 .back {
@@ -112,49 +150,40 @@ a[href]:not([class]):hover,
 
 /* end Emily's CSS animation */
 
-.content-container {
-    max-width: 800px;
-    margin: auto;
-    background-color: white;
-    padding: 2em;
-    padding-top: 2.5em;
-    border-radius: .7em;
-    transition: all 0.3s ease-in;
-    opacity: 1;
+.animate-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
-.beating-hearts-baby .content-container {
+.content-container, .suggester {
+    margin: 0 auto;
+    transition: all 0.3s ease-in;
+    opacity: 1;
+    max-width: 500px;
+}
+
+.beating-hearts-baby .content-container, 
+.beating-hearts-baby .suggester {
     opacity: 0;
 }
 
 .intro-container {
-    max-width: 800px;
     margin: auto;
     padding: 1.5em;
     border-radius: .7em;
+    max-width: 700px;
 }
 
-/* LOGO STYLES */
+/* ICON STYLES */
 
-.logo {
-    position: absolute;
-    float: left;
-    left: 0;
-    top: 2.5em;
-    left: 41%;
+.icon {
+    width: 2em;
+    height: auto;
+    margin-left: -10px;
+    margin-bottom: 3px;
 }
-
-.logo-link:focus .logo-fill {
-    fill:black;
-}
-
-.logo-fill {
-    fill: #E25C5C;
-}
-
-.logo:hover .logo-fill { 
-    fill: black;
-} 
 
 /* PAGE HEADINGS */
 
@@ -162,23 +191,21 @@ a[href]:not([class]):hover,
     font-size: 2em;
     font-weight: 400;
     line-height: 1.1; 
-    margin-top: .3em;
-    margin-bottom: 0em;
+    font-family: "Oswald", serif;
+}
+.intro {
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1.1; 
     font-family: "Oswald", serif;
 }
 
-.subtitle {
-    font-size: 2em;
-    line-height: 1.2em; 
-    font-family: "Oswald", serif;
-    font-weight: 400;
-    font-style: italic;
-}
 
 /* CONTENT */
 
 .footnote {
-    padding-top: 1em;
+    padding-top: .5em;
+    font-size: 14px;
 }
 
 a.footnote {
@@ -201,15 +228,18 @@ a.footnote {
     font-size: 1.2em;
 }
 
-.category-name,
 .name {
     font-weight: 900;
 }
 
 .suggester {
-    margin-top: 1.5em;
+    margin: 1.5em auto;
     font-weight: 400;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
 }
+
 
 .name {
     margin-left: .75em;
@@ -245,6 +275,7 @@ a.footnote {
 .next-suggestion {
     padding-top: 1.3em;
     padding-bottom: 1.3em;
+    margin-top: 3em;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -261,11 +292,14 @@ a.footnote {
     color: white; 
 }
 
+.next-suggestion:visited {
+    color: black;
+}
+
 .next-suggestion:hover,
-.next-suggestion:focus,
-.get-started:hover,
-.get-started:focus { 
+.get-started:hover { 
     background-color: #D8137D;
+    color: black;
 } 
 
 
@@ -357,39 +391,31 @@ a.footnote {
    ========================================================================== */
 
 @media only screen and (min-width: 850px) {
-    .logo {
-        position: fixed;
-          top: 2.5em;
-          left: 2em;
-          width: 10%;
-    }
     .suggestion {
-        font-size: 4em;
+    font-size: 4em;
     }
-    .content-container {
-        padding: 3.6em;
-    }
-
+    .intro {
+    font-size: 5em;
+}
 
 
 @media (min-width: 450px) {
-    body {
-        margin: 3.5em 17%;
-    }
     .suggestion {
-        font-size: 3.8em;
+        font-size: 2.5em;
+    }
+    .intro {
+    font-size: 4em;
     }
     .next-suggestion {
-        font-size: 1.1em;
+    font-size: 1.1em;
     }
     .description {
     font-size: 1.3em;
-}
+    }
     .next-suggestion:before {
     top: -7vw;
     height: 7vw;
     }
-
     .category, 
     .suggester,
     .next-suggestion,
