@@ -157,14 +157,15 @@ a[href]:not([class]):hover,
     align-items: flex-start;
 }
 
-.content-container {
+.content-container, .suggester {
     margin: 0 auto;
     transition: all 0.3s ease-in;
     opacity: 1;
     max-width: 500px;
 }
 
-.beating-hearts-baby .content-container {
+.beating-hearts-baby .content-container, 
+.beating-hearts-baby .suggester {
     opacity: 0;
 }
 
@@ -232,9 +233,13 @@ a.footnote {
 }
 
 .suggester {
-    margin-top: 1.5em;
+    margin: 1.5em auto;
     font-weight: 400;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
 }
+
 
 .name {
     margin-left: .75em;
