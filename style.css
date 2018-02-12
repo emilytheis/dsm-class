@@ -292,9 +292,7 @@ a.footnote {
 }
 
 .next-suggestion:hover,
-.next-suggestion:focus,
-.get-started:hover,
-.get-started:focus { 
+.get-started:hover { 
     background-color: #D8137D;
     color: black;
 } 
