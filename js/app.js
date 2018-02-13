@@ -7,9 +7,12 @@ var DSMclass = {
 
   init: function() {
     var scope = this;
-    this.tabletopData = JSON.parse( localStorage.getItem( this.dataCacheName ) );
+    var today = new Date();
+    var cacheName = 'DSMclass' + today.getMonth() + today.getDate();
+    this.tabletopData = JSON.parse( localStorage.getItem( cacheName ) );
     //this.initServiceWorker();
     this.addEventListeners();
+
 
     // Get data and cache it if necessary
     if ( this.tabletopData ) {
@@ -59,22 +62,17 @@ var DSMclass = {
   cacheData: function( data ) {
     var scope = this;
     var dataToCache = JSON.stringify( data );
-    var cachedData = localStorage.getItem( this.dataCacheName );
+    var today = new Date();
+    var cacheName = 'DSMclass' + today.getMonth() + today.getDate();
+    var cachedData = localStorage.getItem( cacheName );
 
     // Only clear and create new cache if today's data hasn't been cached yet
     if ( !cachedData ) {
       localStorage.clear();
-      localStorage.setItem( this.dataCacheName,  dataToCache);
+      localStorage.setItem( cacheName,  dataToCache);
     }
 
     return;
-  },
-
-  dataCacheName: function() {
-    var today = new Date();
-    var name = 'DSMclass' + today.getMonth() + today.getDate();
-
-    return name;
   },
 
   displayData: function( data ) {
