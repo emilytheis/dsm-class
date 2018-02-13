@@ -14,6 +14,11 @@ html {
     line-height: 1.6;
     font-family: "inconsolata", serif;
     font-weight: 500;
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
 }
 
 /*
@@ -79,6 +84,7 @@ textarea {
     max-width: 1200px;
     margin: auto;
     margin-top: 2em;
+    height: 100%;
 }
 
 .header {
@@ -158,6 +164,7 @@ a[href]:not([class]):hover,
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+    height: 100%;
 }
 
 .content-container, .suggester {
@@ -165,11 +172,34 @@ a[href]:not([class]):hover,
     transition: all 0.3s ease-in;
     opacity: 1;
     max-width: 500px;
+    opacity: 1;
 }
 
 .beating-hearts-baby .content-container, 
 .beating-hearts-baby .suggester {
     opacity: 0;
+}
+
+.loader {
+    opacity: 0;
+    height: 0;
+}
+
+.beating-hearts-baby .loader {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.loader svg {
+    max-width: 50%;
+    display: inline-block;
 }
 
 .intro-container {
@@ -236,7 +266,7 @@ a.footnote {
 }
 
 .suggester {
-    margin: 1.5em auto;
+    margin: 1.5em auto 5em auto;
     font-weight: 400;
     width: 100%;
     text-align: center;
