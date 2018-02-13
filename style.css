@@ -80,34 +80,50 @@ textarea {
    ========================================================================== */
 .page {
     background-color: white;
-    margin: 5% 2.5em 5%;
+    margin: 1em 2.5em 5%;
     max-width: 1200px;
     margin: auto;
     margin-top: 2em;
     height: 100%;
 }
 
+.logo {
+    width: 90px;
+    display: flex;
+    margin-left: 40px;
+    margin-top: 80px;
+}
+
+::selection {
+    background: #DCF42B;
+ }
+
 .header {
     background-color: black;
-    padding: 1em;
+    height: 6em;
+    padding: .5em;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .title {
     font-family: Oswald;
     font-size: 1.7em;
-    font-weight: 900;
+    font-weight: 500;
     text-transform: uppercase;
     color: #DCF42B;
     padding-left: 20px;
 }
+
 a.title {
     text-decoration: none;
 }
 
 a.title:hover {
-   color: #EE2BB4; 
+   color: white; 
+   text-decoration: underline;
+   transition: all 0.3s ease-in;
 }
 
 .subtitle {
@@ -115,16 +131,18 @@ a.title:hover {
     font-family: "Inconsolata", serif;
     font-weight:300;
     padding-left: 20px;
-    margin-top: 10px;
     line-height: 1em;
     color: white;
     display: flex-wrap;
+    transition: all 0.2s ease-in;
 }
+
 .subtitle-link {
     color: white;
 }
 .subtitle-link:hover {
-    color: #EE2BB4;
+    color: #DCF42B;
+    transition: all 0.2s ease-in;;
 }
 
 ul {
@@ -159,24 +177,27 @@ a[href]:not([class]):hover,
 
 /* end Emily's CSS animation */
 
-.animate-content {
+.pair-of-moments {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+    margin: 10%;
     height: 100%;
 }
 
-.content-container, .suggester {
+.moment-container, .suggester-container {
     margin: 0 auto;
     transition: all 0.3s ease-in;
     opacity: 1;
+}
+.moment-container {
     max-width: 500px;
     opacity: 1;
 }
 
-.beating-hearts-baby .content-container, 
-.beating-hearts-baby .suggester {
+.beating-hearts-baby .moment-container, 
+.beating-hearts-baby .suggester-container {
     opacity: 0;
 }
 
@@ -203,10 +224,13 @@ a[href]:not([class]):hover,
 }
 
 .intro-container {
-    margin: auto;
-    padding: 1.5em;
-    border-radius: .7em;
-    max-width: 700px;
+    margin: 5% 10% 10% 10%;
+    max-width: 800px;
+}
+
+.suggester-container {
+    display: flex;
+    justify-content: center;
 }
 
 /* ICON STYLES */
@@ -221,16 +245,25 @@ a[href]:not([class]):hover,
 /* PAGE HEADINGS */
 
 .suggestion {
-    font-size: 2em;
+    font-size: 1.4em;
     font-weight: 400;
-    line-height: 1.1; 
-    font-family: "Oswald", serif;
+    line-height: 1.2; 
+    font-family: "Inconsolata", serif;
 }
 .intro {
     font-size: 2em;
     font-weight: 400;
     line-height: 1.1; 
     font-family: "Oswald", serif;
+}
+.suggester {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-size: 14px;
+    border-style: solid;
+    border-width: .5px;
+    padding: 10px;
 }
 
 
@@ -239,10 +272,7 @@ a[href]:not([class]):hover,
 .footnote {
     padding-top: .5em;
     font-size: 14px;
-}
-
-a.footnote {
-    font-family: "Inconsolata"
+    padding-bottom: 3em;
 }
 
 .comment {
@@ -252,23 +282,27 @@ a.footnote {
     font-size: 1.3em;
 }
 .category, 
-.suggester,
 .next-suggestion,
 .get-started {
-    font-family: 'Inconsolata', sans-serif;
+    font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
-    font-weight: 400;
-    font-size: 1.2em;
+    font-weight: 700;
+    font-size: 1em;
 }
 
 .name {
     font-weight: 900;
 }
 
-.suggester {
-    margin: 1.5em auto 5em auto;
+.category {
+    border-bottom: .5px solid;
+    padding: 4px;
+}
+
+.suggester-container {
+    margin-top: 1.5em;
+    margin-bottom: 7em;
     font-weight: 400;
-    width: 100%;
     text-align: center;
     bottom: 0;
 }
@@ -424,17 +458,14 @@ a.footnote {
    ========================================================================== */
 
 @media only screen and (min-width: 850px) {
-    .suggestion {
-    font-size: 4em;
-    }
     .intro {
     font-size: 5em;
 }
 
 
 @media (min-width: 450px) {
-    .suggestion {
-        font-size: 2.5em;
+    .pair-of-moments {
+        margin: 2%;
     }
     .intro {
     font-size: 5em;
@@ -450,7 +481,6 @@ a.footnote {
     height: 7vw;
     }
     .category, 
-    .suggester,
     .next-suggestion,
     .get-started {
         font-size: 1em;
