@@ -192,8 +192,9 @@ a[href]:not([class]):hover,
     opacity: 1;
 }
 .moment-container {
-    max-width: 550px;
     opacity: 1;
+    width: 100%;
+    max-width: 100%;
 }
 
 .beating-hearts-baby .moment-container, 
@@ -481,6 +482,10 @@ a[href]:not([class]):hover,
 
     .category {
     font-size: 2em;
+    }
+
+    .moment-container {
+        max-width: 500px;
     }
 
     @media only screen and (min-width: 850px) {
