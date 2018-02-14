@@ -83,7 +83,7 @@ textarea {
     margin: 1em 2.5em 5%;
     max-width: 1200px;
     margin: auto;
-    margin-top: 2em;
+    margin-top: 1.5em;
     height: 100%;
 }
 
@@ -91,7 +91,7 @@ textarea {
     width: 90px;
     display: flex;
     margin-left: 40px;
-    margin-top: 80px;
+    margin-top: 75px;
 }
 
 ::selection {
@@ -101,10 +101,8 @@ textarea {
 .header {
     background-color: black;
     height: 6em;
-    padding: .5em;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    padding-top: 1.3em;
+    padding-bottom: .5em;
 }
 
 .title {
@@ -113,7 +111,8 @@ textarea {
     font-weight: 500;
     text-transform: uppercase;
     color: #DCF42B;
-    padding-left: 20px;
+    padding-left: 45px;
+    padding-top: 50px;
 }
 
 a.title {
@@ -130,11 +129,10 @@ a.title:hover {
     font-size: 14.5px;
     font-family: "Inconsolata", serif;
     font-weight:300;
-    padding-left: 20px;
+    padding-left: 45px;
     line-height: 1em;
     color: white;
-    display: flex-wrap;
-    transition: all 0.2s ease-in;
+    margin-top: -2px;
 }
 
 .subtitle-link {
@@ -142,7 +140,6 @@ a.title:hover {
 }
 .subtitle-link:hover {
     color: #DCF42B;
-    transition: all 0.2s ease-in;;
 }
 
 ul {
@@ -182,7 +179,7 @@ a[href]:not([class]):hover,
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin: 10%;
+    margin: 5% 10%;
     height: 100%;
 }
 
@@ -225,7 +222,7 @@ a[href]:not([class]):hover,
 }
 
 .intro-container {
-    margin: 5% 10% 10% 10%;
+    margin: 5em 10% 10% 10%;
     max-width: 800px;
 }
 
@@ -252,17 +249,17 @@ a[href]:not([class]):hover,
     font-family: "Inconsolata", serif;
 }
 .intro {
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: 400;
     line-height: 1.1; 
     font-family: "Oswald", serif;
+    margin-bottom: 10px;
 }
 .suggester {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 900;
     font-size: 14px;
-    padding: 10px;
 }
 
 
@@ -279,23 +276,14 @@ a[href]:not([class]):hover,
 }
 .description {
     font-size: 1.3em;
-}
-.category, 
-.next-suggestion,
-.get-started {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.3em;
-}
-
-.name {
-    font-weight: 900;
-}
+} 
 
 .category {
     border-bottom: .5px solid;
     padding: 4px;
+    font-size:; 1.3em;
+    font-family: Oswald;
+    text-transform: uppercase;
 }
 
 .suggester-container {
@@ -310,6 +298,7 @@ a[href]:not([class]):hover,
 .name {
     margin-left: .75em;
     font-size: .9em;
+    font-weight: 900;
 }
 
 .next-suggestion:before {
@@ -328,7 +317,7 @@ a[href]:not([class]):hover,
 .get-started {
     display: block;
     line-height: .6em;
-    font-size: 26px;
+    font-size: 1em;
     font-weight: 500;
     text-decoration: none;
     border: none;
@@ -336,6 +325,8 @@ a[href]:not([class]):hover,
     text-align: center;
     outline: none;
     font-family: Oswald;
+    text-transform: uppercase;
+    color: black;
 }
 
 .next-suggestion {
@@ -477,7 +468,7 @@ a[href]:not([class]):hover,
 
     .next-suggestion,
     .get-started {
-    font-size: 1em;
+    font-size: 1.2em;
     }
 
     .category {
@@ -487,11 +478,31 @@ a[href]:not([class]):hover,
     .moment-container {
         max-width: 500px;
     }
+    @media only screen and (min-width: 630px) {
+
+    .header {
+            display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    }
+    .subtitle {
+        margin-top: 14px;
+        padding-left: 20px;
+    }
+    .title {
+        padding-top: 0;
+    }
 
     @media only screen and (min-width: 850px) {
     .category {
     font-size: 2.5em;
     }
+
+    .next-suggestion, 
+    .get-started {
+    font-size: 1.5em;
+    }
+
 
 
 /* ==========================================================================
